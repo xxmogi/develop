@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<script type="text/javascript" src="js/controller.js"></script>
+<title></title>
+<script type="text/javascript">
+
+function init(){
+    var myCanvas = document.getElementById('canvas');
+    var cnt = new Controll(myCanvas);
+    var myCanvas2 = document.getElementById('canvas2');
+    var cnt3 = new Controll(myCanvas2);
+
+}
+
+</script>
+<style type="text/css">
+canvas {
+    width : 100px;
+    height: 100px;
+    border : 1px solid black;
+}
+</style>
+</head>
+<body onload="init()">
+<canvas id="canvas">
+</canvas>
+<canvas id="canvas2">
+</canvas>
+</body>
+</html>

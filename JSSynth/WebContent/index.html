@@ -1,0 +1,79 @@
+<html>
+<style type="text/css">
+body{
+  background-color:black;
+}
+*:focus {
+  outline:none;
+}
+#wrapper {
+  position : abosolude;
+width:100px;
+height:100px;
+border: solid 10px red;
+border-radius:100px;
+}
+#semi-a{
+  position: absolute;
+z-index: 1;
+width: 100px;
+height: 100px;
+border-radius: 100px;
+background: white;
+
+</style>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/processing-1.4.1.min.js"></script>
+<script type="text/javascript" src="js/controller.js"></script>
+<script type="text/javascript" src="js/synth.js"></script>
+<script type="text/javascript">
+var context;
+var sinewave;
+
+$(function() {
+  initSynth();
+  initPage();
+});
+var c = [];
+function initSynth() {
+  context = new webkitAudioContext();
+  bufSrc = context.createBufferSource();
+  sinewave = new SineWave(context);
+}
+function initPage() {
+
+  var i=0;
+  $(".controller").each(function(){
+    var obj = $(this).get(0);
+    c[i++] = new Processing(obj,drawController);
+  });
+/*
+  $(document).mousemove(function(e){
+    var val = 1.0-e.pageY / $(window).height();
+    $("#value").html();
+    i=0
+    $(".controller").each(function(){
+      c[i++].setValue(val);
+    });
+  });*/
+}
+
+
+</script>
+</head>
+<body>
+<div id="value"> </div>
+<div id="wrapper">
+<div id="semi-a"></div>
+</div>
+<canvas class="controller"></canvas>
+<canvas class="controller"></canvas>
+<canvas class="controller"></canvas>
+<canvas class="controller"></canvas>
+<canvas class="controller"></canvas>
+<canvas class="controller"></canvas>
+
+</body>
+
+</html>
